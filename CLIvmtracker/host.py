@@ -31,8 +31,6 @@ class host_manager:
             self.host_list.remove(entry)
         return
 
-
-
     def find_entry(self,ip="",domainName=""):
         if ip is "" and domainName is "":
             ip=input("ip address is: ")
@@ -70,8 +68,7 @@ class host_manager:
                 print(entry.names)
 
     def connect(self,host=None):
-        if host is None:
-            host=self.find_entry()
+        host=self.find_entry(host)
         username=input("Username: ")
         host.username=username
         subprocess.call(['ssh',username+"@"+host.ip_addr])
